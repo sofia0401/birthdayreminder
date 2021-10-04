@@ -12,7 +12,7 @@ public class BirthdayReminderApplication {
         Scanner sc=new Scanner(System.in);
         File file = new File("src/main/resources/calendar.txt");
         birthdayCalendar cl=new birthdayCalendar(file);
-        cl.writing("Маша 04-10-2004");
+        cl.getAll();
     }
 
 }

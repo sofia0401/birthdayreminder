@@ -1,9 +1,6 @@
 package com.example.birthdayreminder;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,7 +57,19 @@ public class birthdayCalendar {
 
     public boolean getAll() {
         boolean flag = false;
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            String line = reader.readLine();
 
+            while (line != null) {
+                System.out.println(line);
+                line = reader.readLine();
+                flag = true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return flag;
     }
 }
